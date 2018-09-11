@@ -88,7 +88,7 @@ GLOBAL_ARGS="--networkid $NETID --identity $IDENTITY --rpc --rpcaddr 0.0.0.0 --r
 CONSTELLATION_PORT="900$PUERTO"
 
 if [[ "$CARPETA" == "validator" ]]; then
-	nohup geth --datadir "${PWD}"/"$CARPETA" $GLOBAL_ARGS --mine --minerthreads 1 --syncmode "full" 2>> "${PWD}"/logs/quorum_"$CARPETA"_"${_TIME}".log &
+	nohup geth --datadir "${PWD}"/"$CARPETA" $GLOBAL_ARGS --maxpeers 100 --mine --minerthreads 1 --syncmode "full" 2>> "${PWD}"/logs/quorum_"$CARPETA"_"${_TIME}".log &
 else
 	if [[ "$PUERTO" == "1" ]]; then
 		OTHER_NODES="http://127.0.0.1:9002/"
